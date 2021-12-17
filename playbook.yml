@@ -37,6 +37,7 @@
       msg: New policy for {{ cve }} created
     when: answer.status == 200
 
+  # If policy exists, ACS returns a 500 because it expects a PATCH call
   - debug:
       msg: Policy for {{ cve }} already exists
     when: answer.status == 500
