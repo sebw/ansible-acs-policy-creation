@@ -1,5 +1,11 @@
 # Create new policies in ACS with Ansible
 
+## Challenge
+
+We want to automate the create of policies in Red Hat Advanced Cluster Security for Kubernetes.
+
+There's an API endpoint for the task so it can be automated with Ansible.
+
 ## Ansible
 
 Create your Ansible Vault with those variables:
@@ -20,8 +26,12 @@ Rationale, remediation, etc. can also be defined.
 
 ## Ansible Automation Platform (AAP)
 
-This playbook can be used with Ansible Automation Platform and take advantage of surveys.
+This playbook can also be used with Ansible Automation Platform and take advantage of surveys.
 
 ![](https://raw.githubusercontent.com/sebw/ansible-acs-policy-creation/master/aap_survey.png)
 
 ![](https://raw.githubusercontent.com/sebw/ansible-acs-policy-creation/master/aap_job.png)
+
+## Output
+
+![](https://raw.githubusercontent.com/sebw/ansible-acs-policy-creation/master/aap_policy.png)
