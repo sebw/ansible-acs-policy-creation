@@ -30,6 +30,7 @@
       body_format: json
       validate_certs: false
     register: answer
+    no_log: true
     ignore_errors: true
 
   - debug:
