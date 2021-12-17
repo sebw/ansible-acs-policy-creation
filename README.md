@@ -2,7 +2,7 @@
 
 ## Challenge
 
-We want to automate the create of policies in Red Hat Advanced Cluster Security for Kubernetes.
+We want to automate the creation of policies in Red Hat Advanced Cluster Security for Kubernetes.
 
 There's an API endpoint for the task so it can be automated with Ansible.
 
