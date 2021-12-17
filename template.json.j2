@@ -1,5 +1,5 @@
 {
-    "name": "00 Policy for CVE {{ cve }}",
+    "name": "00 Policy for {{ cve }}",
     "description": "Policy created by Ansible Automation Platform",
     "rationale": "{{ rationale }}",
     "remediation": "{{ remediation }}",
@@ -16,10 +16,12 @@
     "scope": [],
     "severity": "CRITICAL_SEVERITY",
     "enforcementActions": [
-        "FAIL_BUILD_ENFORCEMENT"
+        "FAIL_BUILD_ENFORCEMENT",
+        "SCALE_TO_ZERO_ENFORCEMENT",
+        "UNSATISFIABLE_NODE_CONSTRAINT_ENFORCEMENT"
     ],
     "notifiers": [],
-    "SORTName": "Policy for CVE {{ cve }}",
+    "SORTName": "Policy for {{ cve }}",
     "SORTLifecycleStage": "BUILD",
     "SORTEnforcement": true,
     "policyVersion": "1.1",
