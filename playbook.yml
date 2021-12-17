@@ -1,0 +1,41 @@
+---
+- name: Create a new policy in Red Hat Advanced Cluster Security for Kubernetes
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+  - vault.yml
+
+  vars:
+    cve: CVE-2021-44228
+    rationale: "My rationale"
+    remediation: "Explain how to remediate"
+    policy_disabled: false
+    categories:
+    - "Vulnerability Management"
+    acs_host: "{{ vaulted_acs_host }}"
+    acs_user: "{{ vaulted_acs_user }}"
+    acs_pass: "{{ vaulted_acs_pass }}"
+
+  tasks:
+  - name: create new policy
+    uri:
+      url: https://{{ acs_host }}/v1/policies?enableStrictValidation=true
+      user: "{{ acs_user }}"
+      password: "{{ acs_pass }}"
+      method: POST
+      body: "{{ lookup('template','template.json.j2') }}"
+      force_basic_auth: yes
+      status_code: 200
+      body_format: json
+      validate_certs: false
+    register: answer
+    ignore_errors: true
+
+  - debug:
+      msg: New policy for {{ cve }} created
+    when: answer.status == 200
+
+  - debug:
+      msg: Policy for {{ cve }} already exists
+    when: answer.status == 500

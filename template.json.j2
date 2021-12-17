@@ -1,0 +1,47 @@
+{
+    "name": "00 Policy for CVE {{ cve }}",
+    "description": "Policy created by Ansible Automation Platform",
+    "rationale": "{{ rationale }}",
+    "remediation": "{{ remediation }}",
+    "disabled": {{ policy_disabled }},
+    "categories": {{ categories }},
+    "fields": null,
+    "lifecycleStages": [
+        "BUILD",
+        "DEPLOY"
+    ],
+    "eventSource": "NOT_APPLICABLE",
+    "whitelists": [],
+    "exclusions": [],
+    "scope": [],
+    "severity": "CRITICAL_SEVERITY",
+    "enforcementActions": [
+        "FAIL_BUILD_ENFORCEMENT"
+    ],
+    "notifiers": [],
+    "SORTName": "Policy for CVE {{ cve }}",
+    "SORTLifecycleStage": "BUILD",
+    "SORTEnforcement": true,
+    "policyVersion": "1.1",
+    "policySections": [
+        {
+            "sectionName": "Policy Section 1",
+            "policyGroups": [
+                {
+                    "fieldName": "CVE",
+                    "booleanOperator": "OR",
+                    "negate": false,
+                    "values": [
+                        {
+                            "value": "{{ cve }}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "mitreAttackVectors": [],
+    "criteriaLocked": false,
+    "mitreVectorsLocked": false,
+    "isDefault": false
+}
