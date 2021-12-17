@@ -34,4 +34,4 @@ This playbook can also be used with Ansible Automation Platform and take advanta
 
 ## Output
 
-![](https://raw.githubusercontent.com/sebw/ansible-acs-policy-creation/master/aap_policy.png)
+![](https://raw.githubusercontent.com/sebw/ansible-acs-policy-creation/master/acs_policy.png)
