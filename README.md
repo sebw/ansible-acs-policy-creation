@@ -12,9 +12,11 @@ Create your Ansible Vault with those variables:
 
 ```yaml
 vaulted_acs_host: <your-acs-host>
-vaulted_acs_user: <your-acs-user>
-vaulted_acs_pass: <your-acs-pass>
+vaulted_acs_token: <your-acs-API-token>
 ```
+
+The ACS API token can either have the Admin role or, if you prefer, a custom role with read/write permission to the /policies API endpoint.  More info can be found [here](https://docs.openshift.com/acs/3.67/cli/getting-started-cli.html#cli-authentication_cli-getting-started).
+
 
 Run your playbook and pass the CVE reference:
 
