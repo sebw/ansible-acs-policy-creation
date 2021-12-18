@@ -14,15 +14,14 @@
     categories:
     - "Vulnerability Management"
     acs_host: "{{ vaulted_acs_host }}"
-    acs_user: "{{ vaulted_acs_user }}"
-    acs_pass: "{{ vaulted_acs_pass }}"
+    acs_token: "{{ vaulted_acs_token }}"
 
   tasks:
   - name: create new policy
     uri:
       url: https://{{ acs_host }}/v1/policies?enableStrictValidation=true
-      user: "{{ acs_user }}"
-      password: "{{ acs_pass }}"
+      headers:
+        Authorization: "Bearer {{ acs_token }}"
       method: POST
       body: "{{ lookup('template','template.json.j2') }}"
       force_basic_auth: yes
@@ -30,7 +29,7 @@
       body_format: json
       validate_certs: false
     register: answer
-    no_log: true
+    no_log: false
     ignore_errors: true
 
   - debug:
